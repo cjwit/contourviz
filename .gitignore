@@ -10,3 +10,6 @@
 # Sass
 .sass-cache/
 *.css.map
+
+# Dev tools
+testCommands
