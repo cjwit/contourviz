@@ -1,7 +1,7 @@
 from music21 import converter, corpus
 from os import listdir, path, getcwd, chdir
 from json import dump
-import sys, webbrowser, SimpleHTTPServer, SocketServer, shutil
+import sys, webbrowser, SimpleHTTPServer, SocketServer, shutil, pkgutil
 
 def getPaths(directory):
     """
@@ -67,9 +67,13 @@ def getEntries(collection):
 
 def outputData(data):
     """Accepts formatted data object and outputs it to a JSON file for the web interface"""
-    print sys.path
-    shutil.copytree(sys.argv[0] + '/results', 'results/')
-    savePath = 'collection_data.json'
+    resultsDestination = getcwd() + '/results'
+    resultsSource = path.dirname(sys.modules['contourviz'].__file__) + '/results'
+    resultsExists = path.isdir(resultsDestination)
+    if resultsExists:
+        shutil.rmtree(resultsDestination)
+    shutil.copytree(resultsSource, resultsDestination)
+    savePath = 'results/collection_data.json'
     with open(savePath, 'w') as outfile:
         dump(data, outfile)
         print '  --  Data saved to', savePath
@@ -78,7 +82,7 @@ def outputData(data):
 def openWebBrowser():
     """Opens the vizualization in a locally-served web page"""
     webbrowser.open('localhost:9999')
-    chdir('contourviz/results/')
+    chdir('results/')
     Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
     httpd = SocketServer.TCPServer(("", 9999), Handler)
     print "Serving at port 9999..."
@@ -86,7 +90,6 @@ def openWebBrowser():
 
 def createDataFromDirectory():
     """Combines function into a complete workflow: generates a set of contour lines derived from a given directory"""
-    print sys.argv
     paths = getPaths(sys.argv[1])
     streams = createStreams(paths)
     entries = getEntries(streams)

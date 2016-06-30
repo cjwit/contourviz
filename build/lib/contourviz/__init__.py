@@ -1,1 +1,1 @@
-from .contourviz import joke
+from .contourviz import *
