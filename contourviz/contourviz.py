@@ -18,7 +18,7 @@ def createStreams(paths):
 def createEntry(thisScore):
     """Accept a music21 score object and return an object that includes an array of notes (with durations and frequencies) and metadata including a title"""
     entry = {}
-    entry["metadata"] = thisScore.metadata.title
+    entry["title"] = thisScore.metadata.title
     entry["notes"] = getNotes(thisScore)
     return entry
 
