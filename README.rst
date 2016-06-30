@@ -1,7 +1,7 @@
 ContourViz
 --------
 
-To use (with caution), simply do::
+To use (with a temporary testing path), simply do:
 
-    >>> import funniest
-    >>> print funniest.joke()
+    >>> testpath = '/Volumes/HDD/Media/Dropbox/coding/mylibraries/test'
+    >>> createDataFromDirectory(testpath)
