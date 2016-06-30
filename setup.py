@@ -1,11 +1,19 @@
 from setuptools import setup
 
+def readme():
+    with open('README.rst') as f:
+        return f.read()
+
 setup(name = 'contourviz',
     version = '0.1',
     description = 'A package that charts musical contours into a web-based interactive using music21 and D3.js.',
+    long_description = readme(),
+    keywords = 'music21 music analysis javascript data visualization',
     url = 'https://github.com/cjwit/contourviz',
     author = 'Christopher Witulski',
     author_email = 'chris.witulski@gmail.com',
     license = 'BSD',
     packages = ['contourviz'],
+    install_requires = ['markdown'],
+    include_package_data = True,
     zip_safe = False)
