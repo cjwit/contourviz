@@ -109,23 +109,27 @@ var setListeners = function() {
 var createButtons = function() {
     var buttons = $('#buttons');
 
+    /*
     allMelodies.sort(function(a, b) {
         aTitle = a.title.toLowerCase();
         bTitle = b.title.toLowerCase()
         return aTitle > bTitle ? 1 : -1;
     })
+    */
 
     // create the melody button
-    var button = $('<label></label>')
-        .attr('id', melody.title)
-        .addClass('btn btn-xs btn-default selector')
-        .text(melody.title);
-    var buttonInput = $('<input />')
-        .attr('type', 'checkbox')
-        .attr('autocomplete', 'off')
+    allMelodies.map(function(melody) {
+        var button = $('<label></label>')
+            .attr('id', melody.title)
+            .addClass('btn btn-xs btn-default selector')
+            .text(melody.title);
+        var buttonInput = $('<input />')
+            .attr('type', 'checkbox')
+            .attr('autocomplete', 'off')
+        button.append(buttonInput)
+        buttons.append(button);
+    });
 
-    button.append(buttonInput)
-    buttons.append(button);
 
     setListeners();
 }
@@ -279,7 +283,7 @@ var chartPitches = function() {
             .attr('class', 'textpath')
             .attr('startOffset', function(d) {
                 var numMelodies = data.length;
-                var thisMelodyIndex = title.indexOf(m.title) * 1.0
+                var thisMelodyIndex = titles.indexOf(d.title) * 1.0
                 return String(thisMelodyIndex / numMelodies * 100.0) + '%';
             })
             .attr('xlink:href', function(d, i) { return '#path-' + i; })
