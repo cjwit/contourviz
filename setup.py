@@ -14,6 +14,12 @@ setup(name = 'contourviz',
     author_email = 'chris.witulski@gmail.com',
     license = 'BSD',
     packages = ['contourviz'],
+    entry_points = {
+        'console_scripts': ['chart-contours = contourviz:createDataFromDirectory']
+    },
+    package_data = {
+        '': ['results/*.html', 'results/src/*.js', 'results/src/*.css', 'results/*.json']
+    },
     install_requires = ['music21'],
     include_package_data = True,
     zip_safe = False)
