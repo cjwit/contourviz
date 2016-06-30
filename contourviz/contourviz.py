@@ -1,17 +1,33 @@
-from music21 import corpus
-from os import listdir
+from music21 import converter, corpus
+from os import listdir, path
 from json import dump
 import sys
 
 def getPaths(directory):
-    """Accept path to a folder of parsable files and return an array of parsed streams"""
-    return listdir(directory)
+    """
+    Accept path to a folder of parsable files and return an array of parsed streams
+    Currently only accepts XML and MXL files
+    """
+    filePaths = []
+    fileTypes = ['xml', 'mxl']
+    for file in listdir(directory):
+        fileType = file.split('.')[-1].lower()
+        if fileType in fileTypes:
+            filePaths.append(path.join(directory, file))
+    return filePaths
+
+def checkPath(file):
+    fileTypes = ['xml', 'mxl']
+    fileType = file.split('.')[-1].lower()
+    if fileType not in fileTypes:
+        raise ValueError('Input file is not a valid music notation file')
+    return [file]
 
 def createStreams(paths):
     """Accept an array of local file paths and return an array of music21 stream objects"""
     streams = []
     for p in paths:
-        this = corpus.parse(p)
+        this = converter.parse(p)
         streams.append(this)
     return streams
 
@@ -58,8 +74,16 @@ def outputData(data):
     return
 
 def createDataFromDirectory(path):
-    """Combines function into a complete workflow"""
+    """Combines function into a complete workflow: generates a set of contour lines derived from a given directory"""
     paths = getPaths(path)
+    streams = createStreams(paths)
+    entries = getEntries(streams)
+    outputData(entries)
+    return
+
+def createDataFromFile(path):
+    """Combines function into a complete workflow: generates a set of contour lines derived from a given path"""
+    paths = checkPath(path)
     streams = createStreams(paths)
     entries = getEntries(streams)
     outputData(entries)

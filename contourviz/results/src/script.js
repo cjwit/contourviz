@@ -2,7 +2,7 @@ var data,
     margin = { top: 20, right: 20, bottom: 30, left: 30},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom,
-    color = d3.scale.category20(),
+    color = d3.scale.category10(),
     titles = [],
     allMelodies = [],
     selected = [];
@@ -105,31 +105,23 @@ var setListeners = function() {
     });
 }
 
-// may be some issues in here, check against original
 var createButtons = function() {
     var buttons = $('#buttons');
-
-    /*
-    allMelodies.sort(function(a, b) {
-        aTitle = a.title.toLowerCase();
-        bTitle = b.title.toLowerCase()
-        return aTitle > bTitle ? 1 : -1;
-    })
-    */
+    buttons.addClass('btn-group')
+        .attr('data-toggle', 'buttons');
 
     // create the melody button
     allMelodies.map(function(melody) {
         var button = $('<label></label>')
-            .attr('id', melody.title)
+            .attr('id', melody)
             .addClass('btn btn-xs btn-default selector')
-            .text(melody.title);
+            .text(melody);
         var buttonInput = $('<input />')
             .attr('type', 'checkbox')
             .attr('autocomplete', 'off')
         button.append(buttonInput)
         buttons.append(button);
     });
-
 
     setListeners();
 }

@@ -14,6 +14,6 @@ setup(name = 'contourviz',
     author_email = 'chris.witulski@gmail.com',
     license = 'BSD',
     packages = ['contourviz'],
-    install_requires = ['markdown'],
+    install_requires = ['music21'],
     include_package_data = True,
     zip_safe = False)
