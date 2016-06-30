@@ -1,1 +1,6 @@
 include README.rst
+include contourviz/results/*.json
+include contourviz/results/index.html
+include contourviz/results/src/*.js
+include contourviz/results/src/*.css
+include LICENSE.md
