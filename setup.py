@@ -15,7 +15,10 @@ setup(name = 'contourviz',
     license = 'BSD',
     packages = ['contourviz'],
     entry_points = {
-        'console_scripts': ['chart-contours = contourviz:createDataFromDirectory']
+        'console_scripts': [
+            'chart-contours = contourviz:createDataFromDirectoryCommandLine',
+            'chart-single-contour = contourviz:createDataFromFileCommandLine'
+        ]
     },
     package_data = {
         '': ['results/*.html', 'results/src/*.js', 'results/src/*.css', 'results/*.json']

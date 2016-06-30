@@ -81,6 +81,10 @@ def outputData(data):
 
 def openWebBrowser():
     """Opens the vizualization in a locally-served web page"""
+    print "\nPreparing to serve chart locally on port 9999."
+    print "If you receive an 'port already in use' error, try 'kill 9999' or "
+    print "wait a few moments before running the command again."
+    print "You may also need to reload the website once it loads.\n"
     webbrowser.open('localhost:9999')
     chdir('results/')
     Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
@@ -88,9 +92,27 @@ def openWebBrowser():
     print "Serving at port 9999..."
     httpd.serve_forever()
 
-def createDataFromDirectory():
+def createDataFromDirectoryCommandLine():
     """Combines function into a complete workflow: generates a set of contour lines derived from a given directory"""
     paths = getPaths(sys.argv[1])
+    streams = createStreams(paths)
+    entries = getEntries(streams)
+    outputData(entries)
+    openWebBrowser()
+    return
+
+def createDataFromFileCommandLine():
+    """Combines function into a complete workflow: generates a set of contour lines derived from a given path"""
+    paths = checkPath(sys.argv[1])
+    streams = createStreams(paths)
+    entries = getEntries(streams)
+    outputData(entries)
+    openWebBrowser()
+    return
+
+def createDataFromDirectory(path):
+    """Combines function into a complete workflow: generates a set of contour lines derived from a given directory"""
+    paths = getPaths(path)
     streams = createStreams(paths)
     entries = getEntries(streams)
     outputData(entries)

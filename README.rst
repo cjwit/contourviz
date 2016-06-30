@@ -1,7 +1,18 @@
 ContourViz
 --------
 
-To use (with a temporary testing path), simply do:
+This package uses music21 to process musical notation and creates a web-based visual
+representation of the melodic contour within the browser.
+
+To use on the command line:
+
+    >>> # Create a chart of multiple melodic contours
+    >>> chart-contours '/path/to/directory/full/of/xml/or/mxl/files'
+    >>>
+    >>> # Create a chart of a single melodic contour
+    >>> chart-single-contour '/path/to/file.xml'
+
+For use within the Python interpreter:
 
     >>> testFile = '/path/to/file.xml'
     >>> testPath = '/path/to/directory/full/of/xml/or/mxl/files'
@@ -11,9 +22,6 @@ To use (with a temporary testing path), simply do:
     >>>
     >>> # Create a set of contour lines from all files in a given directory
     >>> createDataFromDirectory(testPath)
-
-This package uses music21 to process musical notation and creates a web-based visual representation of
-the melodic contour within the browser.
 
 Current in progress updates:
 

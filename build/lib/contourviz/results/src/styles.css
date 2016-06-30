@@ -1,0 +1,64 @@
+body {
+  padding: 10px; }
+
+span {
+  font: 12px sans-serif;
+  color: steelBlue;
+  display: block; }
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: steelBlue; }
+
+.container {
+  background: white;
+  display: block;
+  padding: 20px;
+  margin: auto; }
+
+.title text {
+  fill: #505050;
+  opacity: 0.5;
+  font: 24px sans-serif; }
+
+.info {
+  line-height: 1;
+  padding: 12px;
+  background: #c3d9ff;
+  color: #444444;
+  position: absolute;
+  text-align: left;
+  font: 12px sans-serif;
+  border-radius: 10px;
+  display: block; }
+  .info span {
+    font: 14px sans-serif;
+    color: black;
+    font-weight: bold; }
+
+.axis {
+  font: 10px sans-serif; }
+  .axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges; }
+
+.melody {
+  opacity: 0.1; }
+  .melody:hover {
+    opacity: 0.9; }
+    .melody:hover path {
+      stroke-width: 7px; }
+  .melody text {
+    font: bold 12px sans-serif;
+    text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff; }
+  .melody path {
+    fill: none;
+    stroke-width: 3px;
+    stroke-linejoin: round; }
+
+.btn-group {
+  margin: 5px; }
+
+/*# sourceMappingURL=styles.css.map */
