@@ -1,7 +1,7 @@
 from music21 import converter, corpus
-from os import listdir, path
+from os import listdir, path, getcwd, chdir
 from json import dump
-import sys
+import sys, webbrowser, SimpleHTTPServer, SocketServer
 
 def getPaths(directory):
     """
@@ -73,12 +73,22 @@ def outputData(data):
         print '  --  Data saved to', savePath
     return
 
+def openWebBrowser():
+    """Opens the vizualization in a locally-served web page"""
+    webbrowser.open('localhost:9999')
+    chdir('contourviz/results/')
+    Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
+    httpd = SocketServer.TCPServer(("", 9999), Handler)
+    print "Serving at port 9999..."
+    httpd.serve_forever()
+
 def createDataFromDirectory(path):
     """Combines function into a complete workflow: generates a set of contour lines derived from a given directory"""
     paths = getPaths(path)
     streams = createStreams(paths)
     entries = getEntries(streams)
     outputData(entries)
+    openWebBrowser()
     return
 
 def createDataFromFile(path):
@@ -87,4 +97,5 @@ def createDataFromFile(path):
     streams = createStreams(paths)
     entries = getEntries(streams)
     outputData(entries)
+    openWebBrowser()
     return

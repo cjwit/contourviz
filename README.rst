@@ -18,5 +18,5 @@ the melodic contour within the browser.
 Current in progress updates:
 
 * It currently only works with single line (monophonic) melodies.
-
 * The frequency labels draw from a logarithmic reading of each note's frequency, not note names.
+* After serving the file, the Python script does not return to the correct working directory. This may require exiting and reentering the interpreter or navigating the command line to repeat the process.
