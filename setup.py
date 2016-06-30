@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name = 'contour',
+setup(name = 'contourviz',
     version = '0.1',
     description = 'A package that charts musical contours into a web-based interactive using music21 and D3.js.',
     url = 'https://github.com/cjwit/contour',
