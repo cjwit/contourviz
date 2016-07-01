@@ -5,7 +5,7 @@ def readme():
         return f.read()
 
 setup(name = 'contourviz',
-    version = '0.2.2',
+    version = '0.2.3',
     description = 'A package that charts musical contours into a web-based interactive using music21 and D3.js.',
     long_description = readme(),
     keywords = 'music21 music analysis javascript data visualization',
