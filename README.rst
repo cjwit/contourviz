@@ -4,6 +4,10 @@ ContourViz
 This package uses music21 to process musical notation and creates a web-based visual
 representation of the melodic contour within the browser.
 
+To install:
+
+    >>> pip install contourviz
+
 To use on the command line:
 
     >>> # Create a chart of multiple melodic contours
@@ -28,6 +32,3 @@ Current in progress updates:
 * It currently only works with single line (monophonic) melodies.
 * The frequency labels draw from a logarithmic reading of each note's frequency, not note names.
 * After serving the file, the Python script does not return to the correct working directory. This may require exiting and reentering the interpreter or navigating the command line to repeat the process.
-
-
- 
