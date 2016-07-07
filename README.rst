@@ -48,8 +48,8 @@ For use within the Python interpreter:
     >>> # Create a set of contour lines from all files in a given directory
     >>> createDataFromDirectory(testPath)
 
-In progress updates and known issues include the following:
+This is the earliest stages of the project, and future updates include fixing the following issues:
 
 * It currently only works with single line (monophonic) melodies.
-* The frequency labels draw from a logarithmic reading of each note's frequency, not note names.
+* The Y axis currently does not render specific pitch names.
 * When using the interpreter: after serving the file, the Python script does not return to the correct working directory. This may require exiting and reentering the interpreter or navigating the command line to repeat the process.
