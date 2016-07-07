@@ -7,9 +7,17 @@ website within the current working directory called 'results'. It then serves th
 folder locally within the web browser, offering contour maps of either a single melody
 or all of the notation files within the passed folder path.
 
+This library is an abstraction of a similar project presented at the 2016 Analytical Approaches to World
+Music conference in New York City. That set of contour maps, drawing from transcriptions of Moroccan
+malhun sung poetry, can be seen `here <https://cjwit.github.io/malhun-contour/index.html>`
+
+Single contour map example
+
 .. image:: images/ex1.png
    :scale: 50 %
    :alt: Screen shot of a single-melody contour map
+
+Multiple contour map example (rendered using a directory as described below)
 
 .. image:: images/ex2.png
    :scale: 50 %
