@@ -43,6 +43,8 @@ a {
     fill: none;
     stroke: #000;
     shape-rendering: crispEdges; }
+  .axis .tick {
+    display: none; }
 
 .melody {
   opacity: 0.1; }
