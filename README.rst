@@ -7,6 +7,14 @@ website within the current working directory called 'results'. It then serves th
 folder locally within the web browser, offering contour maps of either a single melody
 or all of the notation files within the passed folder path.
 
+.. image:: images/ex1.png
+   :scale: 50 %
+   :alt: Screen shot of a single-melody contour map
+
+.. image:: images/ex2.png
+   :scale: 50 %
+   :alt: Screen shot of a single-melody contour map
+
 To install:
 
     >>> pip install contourviz
